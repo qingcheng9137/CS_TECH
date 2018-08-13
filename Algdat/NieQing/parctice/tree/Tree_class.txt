@@ -1,0 +1,189 @@
+/*************************************************************************************/
+/*************************************** 2018.4.09 ***********************************/
+/*****************************          Jerry Zheng           ************************/
+/**************************** Beijing Insititute of Technology ***********************/
+/*************************************************************************************/
+
+/*实现一个二叉树，创建一个树节点，树结构，查找，最值功能*/
+
+//创建一个树的节点
+//每个node存两个数据
+//一个左node引用一个右node引用
+class Node
+{
+public:
+	int iData;
+	double dData;
+	Node leftNode;
+	Node rightNode;
+	//显示树节点的信息
+	void showNode()	
+	{
+		System.out.println("{"+iData+","+dData+"}");
+	}
+	
+/********************************************************/
+/********************************************************/
+/********************************************************/	
+
+//创建一个树结构，首先向一个树种插入数据节点：如果数据比父节点的数据小，则插在
+//左节点，如果大，则插在父节点的右节点处
+private:
+	Node root;
+//插入Node
+//插入之前需要判断是否为null
+//为null需要比较大小直到currentNode为null就插入
+public:
+void insert(int iData,double dData)
+{
+//创建node节点
+	Node newNode = new Node();
+	newNode.iData = iData;
+	newNode.dData = dData;
+//判断root node是否为null
+if(root == NULL)
+{
+	root = newNode;
+}
+//如果不为NULL
+else
+{
+	Node current = root;
+	Node parent;
+	while(true)
+	{
+		parent = current;//保存当current变成null之前的那一个父节点
+		if(iData < current.iData)//插入左节点
+		{
+			current = current.leftNode;//不断向左寻找node是否为NULL
+			if(current == NULL)
+			{
+				parent.leftNode = newNode;
+				return;
+			}
+		}
+		//插入右节点
+		else
+		{
+			current = current.rightNode;
+			if(current = NULL)
+			{
+				parent.rightNode = newNode;
+				return;
+			}
+		}
+	}
+}
+}
+
+/********************************************************/
+/********************************************************/
+/********************************************************/
+
+//查找关键字：在有序数组中通过二分排序效率非常高。二叉树中的查找效率也很高
+//因为二叉树的添加node的过程就是根据数据项的大小进行有序添加的，而不是无秩
+//序的插入。
+//在tree中寻找关键字
+//返回一个node
+//显示这个node
+public:
+	 Node find(int key)
+	 {
+		 Node current = root;
+		 while(current.iData!=key)
+		 {
+			 if(current.iData > key)
+			 {
+				 current = current.leftNode;
+			 }
+			 else
+			 {
+				 current = current.rightNode;
+			 }
+			 if(current == NULL)
+				 return NULL;
+		 }
+		 return current;
+	 }
+	 
+/********************************************************/
+/********************************************************/
+/********************************************************/
+
+//树的最值查找
+//最小值存在于树的最下层的最左node
+public:
+	Node[] mVal()
+	{
+		Node minNode = NULL;
+		Node maxNode = NULL;
+		Node[] maxminVal = new Node[2];
+		Node current = root;//从树的顶部开始搜索
+		while(current!=NULL)
+		{
+			minNode = current;
+			current = current.leftNode;
+		}
+		maxminVal[0] = minNode;
+		current = root;
+		while(current!=NULL)
+		{
+			maxNode = current;
+			current = current.rightNode;
+		}
+		maxminVal[1] = maxNode;
+		return maxminVal;
+	}
+}
+
+/********************************************************/
+/********************************************************/
+/********************************************************/
+
+//测试用例
+int main()
+{
+		Tree tree = new Tree();
+		tree.insert(3,3.666);
+		tree.insert(1,1.111);
+		tree.insert(2, 2.362);
+		tree.insert(4, 4.672);
+		tree.insert(5, 5.865);
+		tree.insert(6, 6.681);
+		Node node=tree.find(6);
+        if(node==null)
+        {
+            System.out.println("we can not find it");
+        }else
+        {
+            node.showNode();
+        }
+        //查找tree中的最值
+        Node[] temp=tree.mVal();
+        temp[0].showNode();
+        temp[1].showNode();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

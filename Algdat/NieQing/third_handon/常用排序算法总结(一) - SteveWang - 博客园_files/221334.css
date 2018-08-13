@@ -1,0 +1,21 @@
+#site_nav_under {
+	width: 0px; height: 0px; overflow: hidden; display: none;
+}
+#ad_under_post_holder {
+	width: 0px; height: 0px; overflow: hidden; display: none;
+}
+#under_post_news {
+	width: 0px; height: 0px; overflow: hidden; display: none;
+}
+#google_ad_c2 {
+	width: 0px; height: 0px; overflow: hidden; display: none;
+}
+#under_post_kb {
+	width: 0px; height: 0px; overflow: hidden; display: none;
+}
+#cnblogs_post_body h2 {
+	padding: 0px 10px; border-radius: 6px; height: 35px; color: rgb(255, 255, 255); line-height: 35px; font-family: Arial,"Î¢ÈíÑÅºÚ","ËÎÌå","ºÚÌå",sans-serif; font-size: 15pt; box-shadow: 3px 3px 5px #2b3e53; text-shadow: 2px 2px 3px #222; background-color: rgb(43, 102, 149);
+}
+p {
+	font-family: Arial,"Î¢ÈíÑÅºÚ","ºÚÌå","ËÎÌå",sans-serif; font-size: 16px;
+}
