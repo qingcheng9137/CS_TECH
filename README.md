@@ -17,6 +17,6 @@ computer learning trace in only one repository,but I like neat.
 
 My detailed plans are given in the repository 'Mathphyg'.
 By the way,it's the first year in my university.
-Good luck!
+Good luck! hahahahaha!
 
 
